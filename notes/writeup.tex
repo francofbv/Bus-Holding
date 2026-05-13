@@ -1,0 +1,276 @@
+ \pdfoutput=1
+\documentclass[11pt]{article}
+
+% -------------------------------------------------------
+% Core packages
+% -------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage[final,expansion=false]{microtype}
+
+% -------------------------------------------------------
+% Figures and tables
+% -------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+
+% -------------------------------------------------------
+% Colors and boxes
+% -------------------------------------------------------
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+\definecolor{boxblue}{RGB}{235,243,252}
+\definecolor{boxborder}{RGB}{100,160,220}
+\definecolor{greenbg}{RGB}{235,250,238}
+\definecolor{greenborder}{RGB}{60,170,90}
+\definecolor{warnbg}{RGB}{255,248,230}
+\definecolor{warnborder}{RGB}{220,160,30}
+\definecolor{graybg}{RGB}{245,245,245}
+\definecolor{grayborder}{RGB}{180,180,180}
+
+\newmdenv[backgroundcolor=boxblue,linecolor=boxborder,linewidth=1.2pt,
+  innerleftmargin=12pt,innerrightmargin=12pt,innertopmargin=10pt,
+  innerbottommargin=10pt,roundcorner=4pt]{bluebox}
+\newmdenv[backgroundcolor=greenbg,linecolor=greenborder,linewidth=1.2pt,
+  innerleftmargin=12pt,innerrightmargin=12pt,innertopmargin=10pt,
+  innerbottommargin=10pt,roundcorner=4pt]{greenbox}
+\newmdenv[backgroundcolor=warnbg,linecolor=warnborder,linewidth=1.2pt,
+  innerleftmargin=12pt,innerrightmargin=12pt,innertopmargin=10pt,
+  innerbottommargin=10pt,roundcorner=4pt]{warnbox}
+\newmdenv[backgroundcolor=graybg,linecolor=grayborder,linewidth=0.8pt,
+  innerleftmargin=12pt,innerrightmargin=12pt,innertopmargin=10pt,
+  innerbottommargin=10pt,roundcorner=4pt]{graybox}
+
+% -------------------------------------------------------
+% References — plain biblio, arXiv safe
+% -------------------------------------------------------
+\usepackage{cite}
+\usepackage[colorlinks=true,
+            linkcolor=blue!60!black,
+            citecolor=blue!60!black,
+            urlcolor=blue!60!black]{hyperref}
+\usepackage{url}
+
+% -------------------------------------------------------
+% Misc
+% -------------------------------------------------------
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% -------------------------------------------------------
+% Theorem environments — AMS style
+% -------------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+
+% -------------------------------------------------------
+% Custom commands
+% -------------------------------------------------------
+\newcommand{\Gbar}{\bar{G}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dW}{dW_t}
+\newcommand{\pV}[1]{\frac{\partial V}{\partial #1}}
+\newcommand{\ppV}[1]{\frac{\partial^2 V}{\partial #1^2}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+% -------------------------------------------------------
+% Title block — arXiv format
+% -------------------------------------------------------
+\title{
+  \textbf{Optimal Bus Holding via Stochastic Control:} \\
+  \textbf{An Empirical Hamilton--Jacobi--Bellman Approach} \\[0.5em]
+  \large Calibrated to MTA M15 GPS Data
+}
+
+\author{
+  Franco \\[0.3em]
+  \small Department of Statistics, University of Central Florida \\
+  \small \texttt{your.email@ucf.edu}
+}
+
+\date{\today}
+
+% -------------------------------------------------------
+\begin{document}
+\maketitle
+
+% -------------------------------------------------------
+% MSC 2020 classifications — required for math.OC
+% -------------------------------------------------------
+\vspace{-0.5em}
+\noindent\textbf{MSC 2020:}
+49L20 (Dynamic programming in optimal control),
+60H10 (Stochastic ordinary differential equations),
+93E20 (Optimal stochastic control),
+90B20 (Traffic problems)
+
+\medskip
+\noindent\textbf{Keywords:}
+stochastic optimal control,
+Hamilton--Jacobi--Bellman equation,
+bus bunching,
+Ornstein--Uhlenbeck process,
+dynamic programming,
+finite difference methods
+
+\bigskip
+
+% -------------------------------------------------------
+\begin{abstract}
+% 150-250 words. Cover: problem, model, method, data, result.
+% Structure: (1) motivation, (2) model, (3) method, (4) data, (5) result.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% -------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+
+% Paragraphs:
+% 1. Bus bunching problem and why it matters
+% 2. Existing approaches and their limitations
+% 3. Our approach: stochastic control + real data
+% 4. Finance parallel (Merton, pairs trading)
+% 5. Paper outline
+
+% -------------------------------------------------------
+\section{Problem Formulation}
+\label{sec:formulation}
+
+\subsection{State Variable and Dynamics}
+\label{sec:dynamics}
+
+\subsection{Control Variable}
+\label{sec:control}
+
+\subsection{Objective Function and Value Function}
+\label{sec:objective}
+
+% -------------------------------------------------------
+\section{The Hamilton--Jacobi--Bellman Equation}
+\label{sec:hjb}
+
+\subsection{Bellman's Principle of Optimality}
+\label{sec:bellman}
+
+\subsection{It\^{o}'s Lemma and HJB Derivation}
+\label{sec:ito}
+
+\subsection{The HJB Equation}
+\label{sec:hjb_eq}
+
+\subsection{Optimal Bang-Bang Policy}
+\label{sec:bangbang}
+
+% -------------------------------------------------------
+\section{Numerical Solution}
+\label{sec:numerics}
+
+\subsection{Spatial and Temporal Discretization}
+\label{sec:grid}
+
+\subsection{Finite Difference Approximations}
+\label{sec:fd}
+
+\subsection{Explicit Backward Sweep}
+\label{sec:sweep}
+
+\subsection{Stability: CFL Conditions}
+\label{sec:cfl}
+
+% -------------------------------------------------------
+\section{Empirical Calibration}
+\label{sec:data}
+
+\subsection{Data Source and Preprocessing}
+\label{sec:datasource}
+
+\subsection{OU Parameter Estimation via AR(1) Regression}
+\label{sec:estimation}
+
+\subsection{Fitted Parameters}
+\label{sec:params}
+
+% -------------------------------------------------------
+\section{Results}
+\label{sec:results}
+
+\subsection{Value Function}
+\label{sec:vf_results}
+
+\subsection{Optimal Holding Policy Surface}
+\label{sec:policy_results}
+
+\subsection{Monte Carlo Evaluation}
+\label{sec:mc_results}
+
+% -------------------------------------------------------
+\section{Connection to Quantitative Finance}
+\label{sec:finance}
+
+\subsection{Structural Equivalence to Merton's Problem}
+\label{sec:merton}
+
+\subsection{Pairs Trading Analogy}
+\label{sec:pairs}
+
+% -------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\subsection{Extensions}
+\label{sec:extensions}
+
+% -------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+
+% -------------------------------------------------------
+\appendix
+
+\section{Derivation of the HJB Equation}
+\label{app:hjb}
+
+\section{AR(1) to OU Parameter Conversion}
+\label{app:ou}
+
+\section{Finite Difference Derivations from Taylor Series}
+\label{app:fd}
+
+\section{CFL Stability Analysis}
+\label{app:cfl}
+
+% -------------------------------------------------------
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
